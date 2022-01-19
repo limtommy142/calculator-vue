@@ -17,7 +17,8 @@ export default{
   },
   methods: {
     getValue(event) {
-      console.log('saved value', this.savedValue);
+      console.log('initial value : ', this.initialValue);
+      console.log('saved value : ', this.savedValue);
       console.log('operator : ', this.operator);
       let value = event.target.value;
       if ( value ) {
@@ -60,13 +61,13 @@ export default{
     },
     equal() {
       if (this.operator == "+") {
-        this.initialValue = `${Number(this.initialValue) + this.savedValue}`;
+        this.initialValue = `${this.savedValue + Number(this.initialValue)}`;
       } else if (this.operator == "-") {
-        this.initialValue = `${Number(this.initialValue) - this.savedValue}`;
+        this.initialValue = `${this.savedValue - Number(this.initialValue)}`;
       } else if (this.operator == "/") {
-        this.initialValue = `${Number(this.initialValue) / this.savedValue}`;
+        this.initialValue = `${this.savedValue / Number(this.initialValue)}`;
       } else if (this.operator == "x") {
-        this.initialValue = `${Number(this.initialValue) * this.savedValue}`;
+        this.initialValue = `${this.savedValue * Number(this.initialValue)}`;
       }
     },
     changeTheme() {
